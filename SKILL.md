@@ -1,6 +1,6 @@
 ---
 name: navi-game
-description: Navi-tsuki lesson method so the user builds the game themselves (Godot or similar). Agent is navigator, never completes the game. Use when starting a new game, writing AGENTS.md / PLAN.md / README.md, when the user says 次のレッスン or できた, or wants Game Builder Garage style teaching.
+description: Navi-tsuki lesson method so the user builds the game themselves (Godot or similar). Agent is navigator, never completes the game. Prefer editor features (signals, export, AnimationPlayer, groups) over code-only. Use when starting a new game, writing AGENTS.md / PLAN.md / README.md, when the user says 次のレッスン or できた, or wants Game Builder Garage style teaching.
 ---
 
 # ナビつきゲーム
@@ -27,7 +27,7 @@ description: Navi-tsuki lesson method so the user builds the game themselves (Go
 
 1. レッスン名（短い）
 2. クリア条件（F5 などで何が見えればよいか。1文）
-3. 操作は少なく。エディタか脚本の片方だけ、が理想
+3. 操作は少なく。エディタか脚本の片方だけ、が理想。**エディタで足りるなら脚本は出さない**
 4. ソースを出すならコメント必須。足す行は少なく。コメントなしの断片は出さない
 5. できたかだけ聞く
 
@@ -40,9 +40,11 @@ description: Navi-tsuki lesson method so the user builds the game themselves (Go
 
 ## ソースとエディタ
 
+- **エディタの機能を先に使う。** エージェントは脚本に寄りやすい。シーンにノードがあるなら、シグナルは Node タブでつなぐ。Export・グループ・AnimationPlayer・ユニーク名で足りることを、脚本で再発明しない
+- `.connect()` やノードパスの直書きは、実行中に増える相手・エディタに無いときだけ
 - 今あるコードを教材にする。そのレッスンに必要な行だけ
 - コメントは既存脚本に合わせる（言語、なぜその行か）
-- たとえは短く（ツリー≒DOM、脚本≒そのノードの JS）
+- たとえは短く（ツリー≒DOM、脚本≒そのノードの JS、シグナル≒イベント、Export ≒ Inspector で渡す属性）
 - 画像が要るときはプロンプトを出す。画像も代筆完成させない
 - 作業メモは README の「クリア」「いまのレッスン」。PLAN も同じレッスン名に揃える
 
@@ -51,6 +53,7 @@ description: Navi-tsuki lesson method so the user builds the game themselves (Go
 - シーン・UI・脚本を、本人が学ぶ前に完成形として代理作成しない
 - レッスンを並べて「全部やれ」にしない
 - プログラムを代筆してクリア扱いにしない
+- エディタで足りるつなぎ・見た目を、脚本の connect や Tween のコピーだけで済ませない
 - 設計書だけで終わらせない。返答はゲームの課題として書く
 - 参考作を丸コピーして今のシーンを捨てない
 - タイトル・セーブ・ギャラリーなど後回しと書いたものを、核より先に足さない
