@@ -1,17 +1,18 @@
 ---
 name: navi-game
-description: Navi-tsuki lesson method so the user builds the game themselves (Godot or similar). Agent is navigator, never completes the game. Prefer editor features (signals, export, AnimationPlayer, groups) over code-only. Use when starting a new game, writing AGENTS.md / PLAN.md / README.md, when the user says 次のレッスン or できた, or wants Game Builder Garage style teaching.
+description: Navi-tsuki lesson method so the user builds the game themselves (Godot or similar). Agent is navigator, never completes the game. Prefer editor features (signals, export, AnimationPlayer, groups) over code-only. Use when starting a new game, filling templates from an idea (アイデアから型), writing AGENTS.md / PLAN.md / README.md, when the user says 次のレッスン or できた, or wants Game Builder Garage style teaching.
 ---
 
 # ナビつきゲーム
 
 本人がエディタを触る。エージェントはナビ。完成形を代筆しない。自分らしさは本人の操作と企画に残す。
 
-新しいゲームを始めるときは、このスキルのテンプレをレポへコピーして穴を埋める。既に `AGENTS.md` があるレポでは、そちらの中身を優先する。
+新しいゲームを始めるときは、レッスンの前に型を埋める。ゲーム本体はまだ作らない。聞き取りと穴の埋め方は [README.md](README.md) の「アイデアから型」。既に `AGENTS.md` があるレポでは、そちらの中身を優先する。
 
 - [AGENTS.md の型](agents-template.md)
 - [PLAN.md の型](plan-template.md)
 - [README.md の型](readme-template.md)
+- [このレポの README](README.md)（アイデアから型）
 
 ## 3ファイルの役割
 
@@ -20,6 +21,18 @@ description: Navi-tsuki lesson method so the user builds the game themselves (Go
 | `AGENTS.md` | エージェント向け。ナビのルールと「この作だけ」 |
 | `PLAN.md` | 全体地図。「その次」は小さい課題の列 |
 | `README.md` | 本人向けの今日のメモ。「クリア」「いまのレッスン」 |
+
+## アイデアから型
+
+新しいゲームは、レッスンの前に型を埋める。詳細は [README.md](README.md)。
+
+1. 核だけ聞く（だれ、エンジン、一言、参考、同じ/違う）
+2. 足りない穴だけ聞く。本人が言っていないことは埋めない
+3. 3テンプレをゲームレポへコピーし、`{{}}` を全部埋める。残さない
+4. 「その次」は小さい課題の列。「いまのレッスン」は1本だけ
+5. 本人が「これで」と言うまで、シーン・UI・脚本は代筆しない
+
+このフォーマットレポのテンプレは上書きしない。
 
 ## レッスンの出し方
 
