@@ -45,6 +45,7 @@ description: Report-style game building (Godot or similar). The agent builds one
 - エディタの機能を先に使う。シーン内のシグナルはエディタで。`.connect()` は実行時に増える相手だけ
 - `preload` 直書きより `@export` と Inspector
 - 親クラスは同じ処理が3箇所以上になってから
+- シーンは最初から役割ごとに分ける。同じものが2つ以上、UI がまとまった、の時点で別シーンにするよう先に提案する。切り出したら `@export`・NodePath・シグナルが外れていないか確かめる
 - 編集前に `.tscn` で実際の親子関係を確かめる
 - `@export` を足したら割り当てまで済ませるか、残作業に書く
 - 素材は `assets/made/`（画像）、`assets/audio/`（音）
