@@ -49,6 +49,25 @@
 - 依存は `@export` で渡すか、グループや `%名前` で引く。シーンをまたぐ NodePath の手作業の割り当ては作らない
 - シーンを切り出したら、別シーンを指していた `@export`、NodePath、シグナル接続が外れていないか必ず確かめる（外れると Nil エラーや無反応になる）
 - 参考は Godot 公式マニュアルの「シーンの構成」
+## Godot の作法（公式マニュアルより）
+
+詳しくは [godot-practices.md](godot-practices.md)。
+
+- シーンは外に依存しない形で作る。必要なものは親が渡し、子から外を探しに行かない
+- 子から親へはシグナル（過去形の名前）、親から子へはメソッド呼び出し、兄弟は親がつなぐ
+- Autoload は自分のデータだけを管理する広い仕組みだけ。便利関数は `class_name` と `static func`
+- 静的型を付ける（シグナルの引数も）。型の確認は `as` より `is`
+- 名前と並び順はスタイルガイドに従う（ファイルは snake_case、ノードは PascalCase、定数は CONSTANT_CASE、タブ、LF）
+- ゲームのデータ（HP、値段など）は `class_name` の Resource にして `.tres` で持つ
+- 調整する数値には `@export_range` や `@export_group` を付け、Inspector で触りやすくする
+- export の初期値に `preload` を入れない。空にして Inspector で割り当てる
+- 動きは `_physics_process()` で。CharacterBody2D は `move_and_collide` か `move_and_slide` で動かし、`position` を直接書かない
+- 衝突レイヤーとマスクは役割を決めて名前を付け、報告に書く
+- 入力は生のキーでなく InputMap のアクションで読む
+- UI はコンテナとアンカーで並べ、見た目は UI のルートに付けた Theme でそろえる
+- セーブは `user://` に。保存するものはグループで集め、設定は ConfigFile
+- `.godot/` は git に入れない。`.gitignore` と `.gitattributes` はエディタで作る
+- 最適化は測ってから。外部の素材は `addons/` に置く
 ## 事故を防ぐ
 
 - `.tscn` を外から編集したら、Godot 側で再読み込みされたかを報告で確認してもらう
